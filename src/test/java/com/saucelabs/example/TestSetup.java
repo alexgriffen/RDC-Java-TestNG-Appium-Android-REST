@@ -33,6 +33,8 @@ public class TestSetup {
 
         capabilities.setCapability("testobject_api_key", System.getenv("TESTOBJECT_API_KEY"));
         capabilities.setCapability("testobject_device", device);
+        capabilities.setCapability("testobject_suite_name", "allTheTests");
+        capabilities.setCapability("testobject_test_name", "twoPlusTwoOperation_alex");
 
         driver = new AndroidDriver(new URL(System.getenv("APPIUM_URL")), capabilities);
         reporter = new ResultReporter();
@@ -43,6 +45,8 @@ public class TestSetup {
     @Test
     public void twoPlusTwoOperation() throws MalformedURLException {
 
+
+        driver.getScreenshotAs(OutputType.BASE64);
         /* Get the elements. */
         MobileElement buttonTwo = (MobileElement)(driver.findElement(By.id("net.ludeke.calculator:id/digit2")));
         MobileElement buttonPlus = (MobileElement)(driver.findElement(By.id("net.ludeke.calculator:id/plus")));
