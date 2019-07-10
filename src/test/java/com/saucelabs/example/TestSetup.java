@@ -41,8 +41,10 @@ public class TestSetup {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability("testobject_api_key", "D7348099E5FC44458E807282AF87FDB4"); //0462524C86944DE39F74A680E1470099
+        capabilities.setCapability("testobject_api_key", System.getenv("TESTOBJECT_ANDROID_CALC_KEY"));
         capabilities.setCapability("testobject_device", device);
+        capabilities.setCapability("testobject_suite_name", "allTheTests");
+        capabilities.setCapability("testobject_test_name", "twoPlusTwoOperation_alex");
         // capabilities.setCapability("platformVersion", "8");
         capabilities.setCapability("frameworkVersion","1.13.0");
         // capabilities.setCapability("testobject_suite_name", "allTheTests");
@@ -50,7 +52,7 @@ public class TestSetup {
         // capabilities.setCapability("testobject_test_name", "twoPlusTwoOperation_alex");
         // capabilities.setCapability("recordDeviceVitals", true);
         // capabilities.setCapability("automationName", "uiautomator2");
-        capabilities.setCapability("networkSpeed", "gsm");
+        // capabilities.setCapability("networkSpeed", "gsm");
         // capabilities.setCapability("autoAcceptAlerts", true);
 
         driver = new AndroidDriver(new URL("https://us1.appium.testobject.com/wd/hub"), capabilities);
